@@ -19,6 +19,7 @@ from . import settings
 
 urlpatterns = [
     path('', include('comments.urls')),
+    path('', include('stocks.urls')),
     #path('admin/', admin.site.urls),
 ]
 
