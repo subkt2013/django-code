@@ -56,7 +56,7 @@ MIDDLEWARE = [
 
 INTERNAL_IPS = ("127.0.0.1",)
 
-ROOT_URLCONF = 'django_comment.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_comment.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
