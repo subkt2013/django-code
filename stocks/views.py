@@ -4,10 +4,16 @@ import sys
 import codecs
 import urllib.request
 from django.http import HttpResponse
+from .models import Stock
+from .forms import StockForm
+from django.views.generic import ListView
+from django.views.generic import CreateView
 
 
 # Create your views here.
 # webAPIからJSONの形式の文字列の結果をもらう
+
+"""
 def index(request):
 
     # URIスキーム
@@ -31,3 +37,16 @@ def index(request):
     response = readObj.read()
 
     return HttpResponse(response)
+"""
+
+#def index(request):
+class StockIndexView(ListView):
+  model = Stock
+  template_name = 'stocks/stock_list.html'
+  queryset = Stock.objects.order_by('-updated_at')
+  paginate_by = 10
+
+class StockCreateView(CreateView):
+  model = Stock
+  template_name = 'stocks/stock_form.html'
+  form_class = StockForm
